@@ -10,17 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14150f;
-    --ink-2:#1c1e15;
-    --paper:#ece8de;
-    --paper-dim:#d8d3c4;
-    --brass:#ad8a4e;
-    --brass-bright:#c9a765;
-    --stone:#3f4d46;
-    --line: rgba(236,232,222,0.14);
-    --line-dark: rgba(20,21,15,0.12);
-    --muted: #a49d8c;
-    --muted-dark: #6b6a5f;
+    --ink:#2b2117;
+    --ink-2:#362a1c;
+    --paper:#f6f0e4;
+    --paper-dim:#ece2cc;
+    --brass:#b9895a;
+    --brass-bright:#d9ab74;
+    --stone:#8a7458;
+    --line: rgba(246,240,228,0.16);
+    --line-dark: rgba(43,33,23,0.12);
+    --muted: #c9bda4;
+    --muted-dark: #8a7a63;
     --radius: 2px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -53,7 +53,7 @@
   /* ---------- NAV ---------- */
   header.site{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(20,21,15,0.86);
+    background:rgba(43,33,23,0.86);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -96,10 +96,6 @@
     overflow:hidden;
   }
   .hero .wrap{position:relative; z-index:2;}
-  #hero3d{
-    position:absolute; inset:0; width:100%; height:100%;
-    z-index:1; pointer-events:none; display:block;
-  }
   .hero-grid{
     display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px;
     padding-bottom:96px;
@@ -234,6 +230,11 @@
   /* ---------- REVEAL ---------- */
   .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:none;}
+  .service-grid .service-card:nth-child(2){transition-delay:.08s;}
+  .service-grid .service-card:nth-child(3){transition-delay:.16s;}
+  .gallery-single{transition:box-shadow .3s ease;}
+  .gallery-single img{transition:transform .6s ease;}
+  .gallery-single:hover img{transform:scale(1.02);}
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:920px){
@@ -270,7 +271,6 @@
 </header>
 
 <section class="hero">
-  <canvas id="hero3d" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -453,83 +453,12 @@
   <div class="f-bottom wrap">© <span id="yr"></span> J&K Ventures LLC. All rights reserved.</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // --- Hero 3D: faceted brass forms drifting behind the headline ---
-  (function(){
-    if (typeof THREE === 'undefined') return;
-    const canvas = document.getElementById('hero3d');
-    const heroEl = document.querySelector('.hero');
-    if (!canvas || !heroEl) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 0, 9);
-
-    const hemi = new THREE.HemisphereLight(0xece8de, 0x14150f, 0.65);
-    scene.add(hemi);
-    const key = new THREE.PointLight(0xc9a765, 1.4, 40);
-    key.position.set(6, 5, 8);
-    scene.add(key);
-    const fill = new THREE.PointLight(0x3f4d46, 0.7, 40);
-    fill.position.set(-6, -3, 4);
-    scene.add(fill);
-
-    const brassMat = new THREE.MeshStandardMaterial({ color:0xad8a4e, metalness:0.75, roughness:0.32, flatShading:true });
-    const stoneMat = new THREE.MeshStandardMaterial({ color:0x3f4d46, metalness:0.3, roughness:0.6, flatShading:true });
-
-    const forms = [];
-    const specs = [
-      { geo:new THREE.IcosahedronGeometry(1.5, 0), mat:brassMat, pos:[3.6, 1.2, -2], speed:0.06 },
-      { geo:new THREE.OctahedronGeometry(1.1, 0),  mat:stoneMat, pos:[5.2, -1.6, -3], speed:-0.09 },
-      { geo:new THREE.IcosahedronGeometry(0.75, 0), mat:brassMat, pos:[2.1, -2.1, -1.5], speed:0.11 },
-    ];
-    specs.forEach(s=>{
-      const mesh = new THREE.Mesh(s.geo, s.mat);
-      mesh.position.set(...s.pos);
-      scene.add(mesh);
-      forms.push({ mesh, speed:s.speed, base:s.pos[1] });
-    });
-
-    function size(){
-      const r = heroEl.getBoundingClientRect();
-      renderer.setSize(r.width, r.height, false);
-      camera.aspect = r.width / Math.max(r.height, 1);
-      camera.updateProjectionMatrix();
-    }
-    size();
-    window.addEventListener('resize', size);
-
-    let raf;
-    function animate(t){
-      forms.forEach(f=>{
-        f.mesh.rotation.x = t * 0.00012 * (f.speed>0?1:-1) + f.speed;
-        f.mesh.rotation.y = t * 0.00018;
-        f.mesh.position.y = f.base + Math.sin(t*0.0004 + f.speed*10) * 0.25;
-      });
-      renderer.render(scene, camera);
-      raf = requestAnimationFrame(animate);
-    }
-    raf = requestAnimationFrame(animate);
-
-    const vis = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ if(!raf) raf = requestAnimationFrame(animate); }
-        else { cancelAnimationFrame(raf); raf = null; }
-      });
-    }, {threshold:0});
-    vis.observe(heroEl);
-  })();
 </script>
 
 </body>
