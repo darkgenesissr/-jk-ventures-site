@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J&K Ventures LLC — Interiors, Renovation, Care</title>
+<meta name="description" content="J&K Ventures LLC: luxury interior design, residential and commercial remodeling, and professional property maintenance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b2419;
+    --paper:#ffffff;
+    --paper-dim:#f2ebdc;
+    --brass:#a9784a;
+    --brass-bright:#c99a67;
+    --stone:#8a7458;
+    --line: rgba(43,36,25,0.14);
+    --line-dark: rgba(43,36,25,0.10);
+    --muted: #8a7f6c;
+    --muted-dark: #5c5344;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:450; letter-spacing:-0.01em;}
+  :focus-visible{outline:2px solid var(--brass-bright); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+    color:var(--ink);
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-size:19px; letter-spacing:0.01em;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand .mark{color:var(--brass); font-style:italic;}
+  nav.links{display:flex; gap:34px; font-size:13.5px;}
+  nav.links a{
+    text-decoration:none; color:var(--muted-dark);
+    letter-spacing:0.01em;
+    transition:color .2s ease;
+    position:relative;
+  }
+  nav.links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#fff !important; background:var(--brass);
+    padding:10px 18px; text-decoration:none; border-radius:1px;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--ink);}
+  .menu-btn{display:none; background:none; border:none; color:var(--ink); font-size:22px; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(169,120,74,0.14), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, var(--paper-dim) 100%);
+    color:var(--ink);
+    padding:168px 0 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-grid{
+    max-width:720px;
+    padding-bottom:96px;
+  }
+  .hero h1{
+    font-size:clamp(42px, 6vw, 78px);
+    line-height:1.03;
+    margin:22px 0 26px 0;
+  }
+  .hero h1 em{color:var(--brass); font-style:italic; font-weight:450;}
+  .hero p.lede{
+    font-size:17px; color:var(--muted-dark); max-width:46ch; margin-bottom:36px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 26px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; letter-spacing:0.07em; text-transform:uppercase;
+    text-decoration:none;
+    border-radius:1px;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--brass); color:#fff;}
+  .btn-primary:hover{background:#8f6539;}
+  .btn-ghost{border:1px solid rgba(43,36,25,0.25); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+
+  /* material ledger strip */
+  .ledger-single{border-top:1px solid var(--line);}
+  .ledger-single img{width:100%; height:auto; display:block; max-height:220px; object-fit:cover;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:104px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; margin-bottom:56px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(30px,3.6vw,44px); max-width:16ch;}
+  .section-head p{color:var(--muted-dark); max-width:38ch; font-size:15px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--paper);}
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark);}
+  .service-card{background:var(--paper); padding:40px 34px 34px; transition:background .25s ease;}
+  .service-card:hover{background:var(--paper-dim);}
+  .service-card .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass); margin-bottom:18px; display:block;}
+  .service-card h3{font-size:23px; margin-bottom:14px;}
+  .service-card p{color:var(--muted-dark); font-size:14.5px; margin-bottom:20px;}
+  .service-card ul{list-style:none; font-size:13.5px; color:var(--stone);}
+  .service-card li{padding:6px 0; border-top:1px solid var(--line-dark); display:flex; gap:10px;}
+  .service-card li:first-child{border-top:none;}
+  .service-card li::before{content:"—"; color:var(--brass);}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--paper-dim); color:var(--ink);}
+  .process .section-head p{color:var(--muted-dark);}
+  .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line);}
+  .tl-step{padding:30px 26px 0; border-right:1px solid var(--line); position:relative;}
+  .tl-step:last-child{border-right:none;}
+  .tl-step .num{font-family:'Fraunces', serif; font-style:italic; font-size:15px; color:var(--brass); display:block; margin-bottom:56px;}
+  .tl-step h4{font-family:'Fraunces', serif; font-weight:450; font-size:19px; margin-bottom:10px;}
+  .tl-step p{font-size:13.5px; color:var(--muted-dark); max-width:26ch;}
+  .tl-step::before{
+    content:""; position:absolute; top:0; left:0; width:8px; height:1px; background:var(--brass);
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio{background:var(--paper);}
+  .gallery-single{
+    border-radius:1px; overflow:hidden;
+    border:1px solid var(--line-dark);
+  }
+  .gallery-single img{width:100%; height:auto; display:block;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--paper-dim); color:var(--ink);}
+  .t-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:44px;}
+  .t-card q{
+    font-family:'Fraunces', serif; font-style:italic; font-size:19px; line-height:1.45;
+    display:block; margin-bottom:20px; quotes:none;
+  }
+  .t-card .who{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--brass); letter-spacing:0.04em;}
+  .t-card .who span{color:var(--muted-dark); display:block; margin-top:2px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--paper);}
+  .c-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
+  .c-info h2{font-size:clamp(30px,3.6vw,44px); margin-bottom:20px; max-width:14ch;}
+  .c-info p{color:var(--muted-dark); max-width:40ch; margin-bottom:36px; font-size:15px;}
+  .c-list{border-top:1px solid var(--line-dark);}
+  .c-list div{
+    padding:18px 0; border-bottom:1px solid var(--line-dark);
+    display:flex; justify-content:space-between; font-size:14.5px;
+  }
+  .c-list .l{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-dark);}
+  .c-list a{text-decoration:none; border-bottom:1px solid var(--brass);}
+
+  form.inquiry{display:flex; flex-direction:column; gap:20px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted-dark);}
+  .field input, .field select, .field textarea{
+    background:transparent; border:none; border-bottom:1px solid var(--line-dark);
+    padding:10px 2px; font-family:'Inter',sans-serif; font-size:15px; color:var(--ink);
+    outline:none; transition:border-color .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--brass);}
+  .field textarea{resize:vertical; min-height:88px;}
+  form.inquiry .submit{align-self:flex-start; margin-top:6px; border:none; cursor:pointer;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--paper-dim); color:var(--muted-dark); padding:52px 0 34px; border-top:1px solid var(--line);}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  footer .f-brand{font-family:'Fraunces', serif; color:var(--ink); font-size:17px;}
+  footer .f-links{display:flex; gap:26px; font-size:12.5px;}
+  footer .f-links a{text-decoration:none; color:var(--muted-dark);}
+  footer .f-links a:hover{color:var(--brass);}
+  footer .f-bottom{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--muted-dark); margin-top:26px; text-align:center;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  .service-grid .service-card:nth-child(2){transition-delay:.08s;}
+  .service-grid .service-card:nth-child(3){transition-delay:.16s;}
+  .gallery-single{transition:box-shadow .3s ease;}
+  .gallery-single img{transition:transform .6s ease;}
+  .gallery-single:hover img{transform:scale(1.02);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+    .hero-grid{max-width:none;}
+    .service-grid{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:repeat(2,1fr);}
+    .tl-step{border-bottom:1px solid var(--line);}
+    .tl-step:nth-child(2n){border-right:none;}
+    .gallery{grid-template-columns:repeat(2,1fr); grid-auto-rows:110px;}
+    .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1; grid-row:span 1;}
+    .t-grid{grid-template-columns:1fr; gap:36px;}
+    .c-grid{grid-template-columns:1fr; gap:48px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand"><span class="mark">J&K</span> Ventures</div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Request a Consult</a>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">J&K Ventures LLC — Design / Build / Care</span>
+        <h1>Spaces held to a<br><em>higher standard.</em></h1>
+        <p class="lede">Luxury interior design, ground-up remodeling, and disciplined property maintenance — delivered by one firm, so nothing gets lost between the drawing and the finished room.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Start a Project →</a>
+          <a href="#portfolio" class="btn btn-ghost">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ledger-single">
+    <img src="IMG_7818.jpeg" alt="Material palette collage: Calacatta marble, white oak, blackened steel, brushed brass, and boucle linen">
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Three disciplines, one accountable team.</h2>
+      <p>Most firms hand you off between design, construction, and upkeep. We don't — the people who plan the room are accountable for how it lives in five years.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <span class="tag">01 — Interiors</span>
+        <h3>Interior Design</h3>
+        <p>Full-service design for residences and commercial spaces — concept, materials, furnishings, and styling, tailored to how the space is actually used.</p>
+        <ul>
+          <li>Conceptual drafting & space planning</li>
+          <li>Material & furnishings selection</li>
+          <li>Bespoke styling & staging</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <span class="tag">02 — Construction</span>
+        <h3>Remodeling & Design-Build</h3>
+        <p>Residential and commercial renovation, from single rooms to full builds — one team carrying the project from drawing to punch list.</p>
+        <ul>
+          <li>Kitchen, bath & whole-home remodels</li>
+          <li>Commercial buildouts & tenant improvements</li>
+          <li>Permitting & trade coordination</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <span class="tag">03 — Care</span>
+        <h3>Property Maintenance</h3>
+        <p>Professional cleaning and upkeep that protects the finish you paid for, on a schedule that fits how the property is used.</p>
+        <ul>
+          <li>Recurring & deep cleaning programs</li>
+          <li>Post-construction & move-in cleaning</li>
+          <li>Seasonal & white-glove property care</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>How a project moves.</h2>
+      <p>Four stages, in order, with one point of contact throughout.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step">
+        <span class="num">I.</span>
+        <h4>Consult</h4>
+        <p>Walkthrough, budget, and scope — in-person for local properties, virtual otherwise.</p>
+      </div>
+      <div class="tl-step">
+        <span class="num">II.</span>
+        <h4>Design</h4>
+        <p>Drawings, material palette, and a fixed proposal before anything is ordered.</p>
+      </div>
+      <div class="tl-step">
+        <span class="num">III.</span>
+        <h4>Build</h4>
+        <p>Construction and installation, managed on-site with weekly progress updates.</p>
+      </div>
+      <div class="tl-step">
+        <span class="num">IV.</span>
+        <h4>Care</h4>
+        <p>Post-completion cleaning and an ongoing maintenance plan, if you want one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Selected work.</h2>
+      <p>A sample of recent residential and commercial projects.</p>
+    </div>
+    <div class="gallery-single">
+      <img src="portfolio-collage.jpg" alt="J&K Ventures project collage: private residence living room, downtown loft kitchen remodel, boutique office buildout, primary suite renovation, material studio flat lay, and commercial lobby design">
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Client notes.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <q>They designed the space, built it, and then kept it looking that way. We never had to manage three separate vendors.</q>
+        <div class="who">Harry Solomon<span>Homeowner, Full Remodel</span></div>
+      </div>
+      <div class="t-card">
+        <q>Our buildout finished on schedule with zero surprises on materials. Communication was direct the whole way through.</q>
+        <div class="who">Karen King<span>Commercial Client</span></div>
+      </div>
+      <div class="t-card">
+        <q>The maintenance program alone has been worth it — the finishes still look brand new a year later.</q>
+        <div class="who">Connor Thielges<span>Property Owner</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="c-grid">
+      <div class="c-info reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Tell us about the space.</h2>
+        <p>Share a few details and we'll follow up to schedule a walkthrough or a call — whichever fits.</p>
+        <div class="c-list">
+          <div><span class="l">Email</span><a href="mailto:info@jkventures.llc">info@jkventures.llc</a></div>
+          <div><span class="l">Phone</span><a href="tel:+15075916268">(507) 591-6268</a></div>
+          <div><span class="l">Service Area</span><span>Residential & Commercial</span></div>
+        </div>
+      </div>
+      <form class="inquiry reveal" onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Request Sent ✓';">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" type="text" required placeholder="Jane Carter">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="jane@email.com">
+        </div>
+        <div class="field">
+          <label for="service">Interested in</label>
+          <select id="service">
+            <option>Interior Design</option>
+            <option>Remodeling / Design-Build</option>
+            <option>Property Maintenance</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Project details</label>
+          <textarea id="msg" placeholder="Property type, rough scope, timeline..."></textarea>
+        </div>
+        <button class="btn btn-primary submit" type="submit">Send Inquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">J&K Ventures LLC</div>
+    <div class="f-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="f-bottom wrap">© <span id="yr"></span> J&K Ventures LLC. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
