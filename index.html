@@ -10,17 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2b2117;
-    --ink-2:#362a1c;
-    --paper:#f6f0e4;
-    --paper-dim:#ece2cc;
-    --brass:#b9895a;
-    --brass-bright:#d9ab74;
+    --ink:#2b2419;
+    --paper:#ffffff;
+    --paper-dim:#f2ebdc;
+    --brass:#a9784a;
+    --brass-bright:#c99a67;
     --stone:#8a7458;
-    --line: rgba(246,240,228,0.16);
-    --line-dark: rgba(43,33,23,0.12);
-    --muted: #c9bda4;
-    --muted-dark: #8a7a63;
+    --line: rgba(43,36,25,0.14);
+    --line-dark: rgba(43,36,25,0.10);
+    --muted: #8a7f6c;
+    --muted-dark: #5c5344;
     --radius: 2px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -53,62 +52,61 @@
   /* ---------- NAV ---------- */
   header.site{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(43,33,23,0.86);
+    background:rgba(255,255,255,0.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   header.site .wrap{
     display:flex; align-items:center; justify-content:space-between;
     height:76px;
-    color:var(--paper);
+    color:var(--ink);
   }
   .brand{
     font-family:'Fraunces', serif; font-size:19px; letter-spacing:0.01em;
     display:flex; align-items:baseline; gap:8px;
   }
-  .brand .mark{color:var(--brass-bright); font-style:italic;}
+  .brand .mark{color:var(--brass); font-style:italic;}
   nav.links{display:flex; gap:34px; font-size:13.5px;}
   nav.links a{
-    text-decoration:none; color:var(--muted);
+    text-decoration:none; color:var(--muted-dark);
     letter-spacing:0.01em;
     transition:color .2s ease;
     position:relative;
   }
-  nav.links a:hover{color:var(--paper);}
+  nav.links a:hover{color:var(--ink);}
   .nav-cta{
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--ink) !important; background:var(--brass-bright);
+    color:#fff !important; background:var(--brass);
     padding:10px 18px; text-decoration:none; border-radius:1px;
     transition:background .2s ease;
   }
-  .nav-cta:hover{background:var(--paper);}
-  .menu-btn{display:none; background:none; border:none; color:var(--paper); font-size:22px; cursor:pointer;}
+  .nav-cta:hover{background:var(--ink);}
+  .menu-btn{display:none; background:none; border:none; color:var(--ink); font-size:22px; cursor:pointer;}
 
   /* ---------- HERO ---------- */
   .hero{
     background:
-      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(173,138,78,0.16), transparent 60%),
-      linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
-    color:var(--paper);
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(169,120,74,0.14), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, var(--paper-dim) 100%);
+    color:var(--ink);
     padding:168px 0 0 0;
     position:relative;
     overflow:hidden;
   }
   .hero .wrap{position:relative; z-index:2;}
   .hero-grid{
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px;
+    max-width:720px;
     padding-bottom:96px;
-    align-items:end;
   }
   .hero h1{
     font-size:clamp(42px, 6vw, 78px);
     line-height:1.03;
     margin:22px 0 26px 0;
   }
-  .hero h1 em{color:var(--brass-bright); font-style:italic; font-weight:450;}
+  .hero h1 em{color:var(--brass); font-style:italic; font-weight:450;}
   .hero p.lede{
-    font-size:17px; color:var(--muted); max-width:46ch; margin-bottom:36px;
+    font-size:17px; color:var(--muted-dark); max-width:46ch; margin-bottom:36px;
   }
   .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
   .btn{
@@ -121,19 +119,10 @@
     transition:transform .2s ease, background .2s ease, border-color .2s ease;
   }
   .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--brass-bright); color:var(--ink);}
-  .btn-primary:hover{background:#dcb877;}
-  .btn-ghost{border:1px solid rgba(236,232,222,0.3); color:var(--paper);}
-  .btn-ghost:hover{border-color:var(--brass-bright); color:var(--brass-bright);}
-
-  .hero-figures{
-    font-family:'IBM Plex Mono', monospace;
-    display:flex; flex-direction:column; gap:18px;
-    border-left:1px solid var(--line); padding-left:28px;
-  }
-  .hero-figures .fig{}
-  .hero-figures .fig .n{font-size:28px; color:var(--paper); font-family:'Fraunces', serif;}
-  .hero-figures .fig .l{font-size:10.5px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:2px;}
+  .btn-primary{background:var(--brass); color:#fff;}
+  .btn-primary:hover{background:#8f6539;}
+  .btn-ghost{border:1px solid rgba(43,36,25,0.25); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
 
   /* material ledger strip */
   .ledger-single{border-top:1px solid var(--line);}
@@ -152,7 +141,7 @@
   .services{background:var(--paper);}
   .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark);}
   .service-card{background:var(--paper); padding:40px 34px 34px; transition:background .25s ease;}
-  .service-card:hover{background:#e3ded0;}
+  .service-card:hover{background:var(--paper-dim);}
   .service-card .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass); margin-bottom:18px; display:block;}
   .service-card h3{font-size:23px; margin-bottom:14px;}
   .service-card p{color:var(--muted-dark); font-size:14.5px; margin-bottom:20px;}
@@ -162,17 +151,16 @@
   .service-card li::before{content:"—"; color:var(--brass);}
 
   /* ---------- PROCESS ---------- */
-  .process{background:var(--ink); color:var(--paper);}
-  .process .section-head p, .process .section-head h2{color:var(--paper);}
-  .process .section-head p{color:var(--muted);}
+  .process{background:var(--paper-dim); color:var(--ink);}
+  .process .section-head p{color:var(--muted-dark);}
   .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line);}
   .tl-step{padding:30px 26px 0; border-right:1px solid var(--line); position:relative;}
   .tl-step:last-child{border-right:none;}
-  .tl-step .num{font-family:'Fraunces', serif; font-style:italic; font-size:15px; color:var(--brass-bright); display:block; margin-bottom:56px;}
+  .tl-step .num{font-family:'Fraunces', serif; font-style:italic; font-size:15px; color:var(--brass); display:block; margin-bottom:56px;}
   .tl-step h4{font-family:'Fraunces', serif; font-weight:450; font-size:19px; margin-bottom:10px;}
-  .tl-step p{font-size:13.5px; color:var(--muted); max-width:26ch;}
+  .tl-step p{font-size:13.5px; color:var(--muted-dark); max-width:26ch;}
   .tl-step::before{
-    content:""; position:absolute; top:0; left:0; width:8px; height:1px; background:var(--brass-bright);
+    content:""; position:absolute; top:0; left:0; width:8px; height:1px; background:var(--brass);
   }
 
   /* ---------- PORTFOLIO ---------- */
@@ -184,14 +172,14 @@
   .gallery-single img{width:100%; height:auto; display:block;}
 
   /* ---------- TESTIMONIALS ---------- */
-  .testimonials{background:var(--stone); color:var(--paper);}
+  .testimonials{background:var(--paper-dim); color:var(--ink);}
   .t-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:44px;}
   .t-card q{
     font-family:'Fraunces', serif; font-style:italic; font-size:19px; line-height:1.45;
     display:block; margin-bottom:20px; quotes:none;
   }
-  .t-card .who{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--brass-bright); letter-spacing:0.04em;}
-  .t-card .who span{color:rgba(236,232,222,0.55); display:block; margin-top:2px;}
+  .t-card .who{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--brass); letter-spacing:0.04em;}
+  .t-card .who span{color:var(--muted-dark); display:block; margin-top:2px;}
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--paper);}
@@ -219,12 +207,12 @@
   form.inquiry .submit{align-self:flex-start; margin-top:6px; border:none; cursor:pointer;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--ink); color:var(--muted); padding:52px 0 34px;}
+  footer{background:var(--paper-dim); color:var(--muted-dark); padding:52px 0 34px; border-top:1px solid var(--line);}
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
-  footer .f-brand{font-family:'Fraunces', serif; color:var(--paper); font-size:17px;}
+  footer .f-brand{font-family:'Fraunces', serif; color:var(--ink); font-size:17px;}
   footer .f-links{display:flex; gap:26px; font-size:12.5px;}
-  footer .f-links a{text-decoration:none; color:var(--muted);}
-  footer .f-links a:hover{color:var(--brass-bright);}
+  footer .f-links a{text-decoration:none; color:var(--muted-dark);}
+  footer .f-links a:hover{color:var(--brass);}
   footer .f-bottom{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--muted-dark); margin-top:26px; text-align:center;}
 
   /* ---------- REVEAL ---------- */
@@ -240,8 +228,7 @@
   @media (max-width:920px){
     nav.links{display:none;}
     .menu-btn{display:block;}
-    .hero-grid{grid-template-columns:1fr; gap:36px;}
-    .hero-figures{border-left:none; border-top:1px solid var(--line); padding-left:0; padding-top:20px; flex-direction:row; flex-wrap:wrap; gap:28px;}
+    .hero-grid{max-width:none;}
     .service-grid{grid-template-columns:1fr;}
     .timeline{grid-template-columns:repeat(2,1fr);}
     .tl-step{border-bottom:1px solid var(--line);}
@@ -281,11 +268,6 @@
           <a href="#contact" class="btn btn-primary">Start a Project →</a>
           <a href="#portfolio" class="btn btn-ghost">View Our Work</a>
         </div>
-      </div>
-      <div class="hero-figures">
-        <div class="fig"><div class="n">Residential</div><div class="l">& Commercial Clients</div></div>
-        <div class="fig"><div class="n">Design–Build</div><div class="l">Single Point of Contact</div></div>
-        <div class="fig"><div class="n">End-to-End</div><div class="l">Concept Through Upkeep</div></div>
       </div>
     </div>
   </div>
@@ -381,7 +363,7 @@
 <section id="testimonials" class="testimonials">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2 style="color:var(--paper);">Client notes.</h2>
+      <h2>Client notes.</h2>
     </div>
     <div class="t-grid">
       <div class="t-card">
