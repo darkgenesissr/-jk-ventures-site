@@ -238,6 +238,139 @@
     .t-grid{grid-template-columns:1fr; gap:36px;}
     .c-grid{grid-template-columns:1fr; gap:48px;}
   }
+
+  /* ---------- EDITORIAL REFRESH ---------- */
+  :root{
+    --ink:#1c2922;
+    --paper:#f7f5ef;
+    --paper-dim:#eeece3;
+    --brass:#a98554;
+    --brass-bright:#cfb184;
+    --stone:#667066;
+    --line:rgba(28,41,34,.17);
+    --line-dark:rgba(28,41,34,.13);
+    --muted:#777c72;
+    --muted-dark:#59645c;
+  }
+  body{background:var(--paper);}
+  .wrap{max-width:1320px; padding:0 48px;}
+  header.site{background:rgba(247,245,239,.94); border-color:rgba(28,41,34,.12);}
+  header.site .wrap{height:82px;}
+  .brand{font-size:21px; letter-spacing:-.03em;}
+  .brand .mark{color:var(--ink); font-style:normal; font-weight:600;}
+  nav.links{gap:32px; font-size:13px;}
+  nav.links a{color:#59645c;}
+  .nav-cta{background:var(--ink); padding:13px 20px; border-radius:0; letter-spacing:.1em;}
+  .nav-cta:hover{background:var(--brass);}
+  .hero{
+    min-height:720px; padding:82px 0 0; color:#f7f5ef;
+    background:#1c2922; overflow:hidden;
+  }
+  .hero::before{content:""; position:absolute; inset:0 0 0 42%; background:linear-gradient(90deg,#1c2922 0%,rgba(28,41,34,.72) 17%,rgba(28,41,34,.08) 72%),linear-gradient(0deg,rgba(18,27,22,.5),transparent 45%),url('assets/jobs/real-job-bathroom.jpg') center 45%/cover; opacity:.82;}
+  .hero .wrap{min-height:610px; display:flex; align-items:center;}
+  .hero-grid{max-width:660px; padding:42px 0 82px;}
+  .hero .eyebrow{color:#d0b58b;}
+  .hero h1{font-size:clamp(56px,7.1vw,100px); line-height:.98; letter-spacing:-.045em; margin:27px 0 28px;}
+  .hero h1 em{color:#d0b58b;}
+  .hero p.lede{font-size:17px; line-height:1.75; color:rgba(247,245,239,.78); max-width:43ch;}
+  .btn{border-radius:0; padding:16px 23px; font-size:11px; letter-spacing:.12em;}
+  .btn-primary{background:var(--brass); color:#fff;}
+  .btn-primary:hover{background:#8e7047;}
+  .btn-ghost{border-color:rgba(247,245,239,.48); color:#f7f5ef;}
+  .btn-ghost:hover{border-color:#d0b58b; color:#d0b58b;}
+  .ledger-single{display:none;}
+  section{padding:120px 0;}
+  .section-head{margin-bottom:58px;}
+  .section-head h2,.c-info h2{font-size:clamp(38px,4.2vw,58px); line-height:1.06; letter-spacing:-.035em;}
+  .section-head p{line-height:1.8;}
+  .services{background:var(--paper);}
+  .service-grid{background:transparent; border:0; gap:22px;}
+  .service-card{background:#f0eee7; padding:36px 32px 32px; min-height:330px; border-top:2px solid var(--brass);}
+  .service-card:hover{background:#e9e6dc;}
+  .service-card h3{font-size:27px; letter-spacing:-.02em;}
+  .service-card p{line-height:1.75;}
+  .service-card ul{color:#59645c;}
+  .process{background:#e9e7de;}
+  .timeline{border-color:rgba(28,41,34,.22);}
+  .tl-step{padding:30px 28px 8px;}
+  .tl-step .num{font-size:18px; margin-bottom:64px;}
+  .tl-step h4{font-size:23px;}
+  .portfolio{background:var(--paper);}
+  .jobs-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px;}
+  .job-card{background:#eeece3;}
+  .job-card img{width:100%; aspect-ratio:1.5/1; object-fit:contain; background:#fff;}
+  .job-card figcaption{padding:20px 22px 22px;}
+  .job-card h3{font-size:23px; margin-bottom:5px;}
+  .job-card p{font-size:13px; color:var(--muted-dark);}
+  .concepts{background:#e9e7de;}
+  .concept-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px;}
+  .concept-card{background:var(--paper);}
+  .concept-card img{width:100%; aspect-ratio:1.5/1; object-fit:cover;}
+  .concept-card figcaption{padding:19px 22px 22px;}
+  .concept-card h3{font-size:22px; margin-bottom:5px;}
+  .concept-card p{font-size:13px; color:var(--muted-dark);}
+  .concept-label{display:inline-block; margin-top:11px; padding:5px 8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; background:#e9e7de; color:var(--muted-dark);}
+  .form-note{margin-top:14px; color:var(--muted-dark); font-size:12px; line-height:1.6;}
+  .testimonials{background:#1c2922; color:#f7f5ef;}
+  .testimonials .section-head p{color:rgba(247,245,239,.7);}
+  .t-grid{gap:34px;}
+  .t-card{padding:30px 28px; border:1px solid rgba(247,245,239,.2); min-height:220px; display:flex; flex-direction:column; justify-content:space-between;}
+  .t-card q{font-size:21px; line-height:1.5;}
+  .t-card .who{color:#d0b58b;}
+  .t-card .who span{color:rgba(247,245,239,.6);}
+  .contact{background:var(--paper);}
+  .c-grid{gap:100px;}
+  .c-info p{line-height:1.8;}
+  .c-list div{padding:20px 0;}
+  .c-list div:last-child{align-items:flex-start; gap:24px;}
+  .c-list div:last-child span:last-child{max-width:40ch; text-align:right;}
+  .field input,.field select,.field textarea{background:#f0eee7; border:1px solid transparent; padding:14px;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brass);}
+  footer{background:#e9e7de;}
+  .reveal{transform:translateY(24px);}
+  @media(max-width:920px){
+    .wrap{padding:0 28px;}
+    header.site .wrap{height:72px;}
+    nav.links{display:none; position:absolute; top:72px; left:0; right:0; padding:22px 28px 26px; background:var(--paper); border-bottom:1px solid var(--line); flex-direction:column; gap:18px;}
+    nav.links.open{display:flex;}
+    nav.links a{font-size:15px;}
+    .menu-btn{display:block; margin-left:auto; padding:8px;}
+    .nav-cta{margin-left:16px;}
+    .hero{min-height:680px; padding-top:72px;}
+    .hero::before{inset:0; background:linear-gradient(90deg,rgba(28,41,34,.97),rgba(28,41,34,.66) 65%,rgba(28,41,34,.35)),linear-gradient(0deg,rgba(18,27,22,.35),transparent),url('assets/jobs/real-job-bathroom.jpg') center/cover;}
+    .hero .wrap{min-height:608px;}
+    .hero-grid{max-width:620px;}
+    .service-grid{grid-template-columns:1fr; gap:14px;}
+    .service-card{min-height:0;}
+    .jobs-grid,.concept-grid{grid-template-columns:1fr;}
+    .t-grid{grid-template-columns:1fr; gap:16px;}
+    .t-card{min-height:190px;}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px;}
+    .brand{font-size:18px;}
+    .nav-cta{font-size:9px; padding:11px 12px; margin-left:8px;}
+    .menu-btn{font-size:20px;}
+    .hero{min-height:650px;}
+    .hero .wrap{min-height:578px;}
+    .hero h1{font-size:clamp(52px,15vw,76px);}
+    .hero p.lede{font-size:15.5px;}
+    .hero-ctas{gap:10px;}
+    .btn{padding:14px 15px; font-size:10px;}
+    section{padding:84px 0;}
+    .section-head{gap:18px; margin-bottom:38px;}
+    .section-head h2,.c-info h2{font-size:39px;}
+    .service-card{padding:29px 24px;}
+    .timeline{grid-template-columns:1fr 1fr;}
+    .tl-step{padding:24px 16px 24px 0;}
+    .tl-step:nth-child(2n){padding-left:16px;}
+    .tl-step .num{margin-bottom:34px;}
+    .gallery-single img{aspect-ratio:1/1.08; object-position:center;}
+    .c-grid{gap:48px;}
+    .c-list div{gap:12px; font-size:13px;}
+    footer .wrap{align-items:flex-start;}
+    footer .f-links{gap:16px; flex-wrap:wrap;}
+  }
 </style>
 </head>
 <body>
@@ -245,15 +378,15 @@
 <header class="site">
   <div class="wrap">
     <div class="brand"><span class="mark">J&K</span> Ventures</div>
-    <nav class="links">
+    <nav class="links" id="site-nav">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#testimonials">Clients</a>
+      <a href="#portfolio">Our Recent Jobs</a>
+      <a href="#testimonials">Our Approach</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="nav-cta">Request a Consult</a>
-    <button class="menu-btn" aria-label="Menu">☰</button>
+    <button class="menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">☰</button>
   </div>
 </header>
 
@@ -321,13 +454,13 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>How a project moves.</h2>
-      <p>Four stages, in order, with one point of contact throughout.</p>
+        <p>Four stages, in order, with one point of contact throughout. Start by sharing your city, project type, and rough scope.</p>
     </div>
     <div class="timeline">
       <div class="tl-step">
         <span class="num">I.</span>
         <h4>Consult</h4>
-        <p>Walkthrough, budget, and scope — in-person for local properties, virtual otherwise.</p>
+        <p>We begin with a call or video consultation. For projects nationwide, we confirm on-site walkthrough availability based on location, scope, and schedule.</p>
       </div>
       <div class="tl-step">
         <span class="num">II.</span>
@@ -337,7 +470,7 @@
       <div class="tl-step">
         <span class="num">III.</span>
         <h4>Build</h4>
-        <p>Construction and installation, managed on-site with weekly progress updates.</p>
+        <p>On-site construction and installation are available nationwide, with location and schedule confirmed before the project begins. Clients receive weekly progress updates.</p>
       </div>
       <div class="tl-step">
         <span class="num">IV.</span>
@@ -351,11 +484,41 @@
 <section id="portfolio" class="portfolio">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Selected work.</h2>
-      <p>A sample of recent residential and commercial projects.</p>
+      <h2>OUR RECENT JOBS</h2>
+      <p>A selection of before-and-after renovation work. Locations are omitted where they have not been provided.</p>
     </div>
-    <div class="gallery-single">
-      <img src="portfolio-collage.jpg" alt="J&K Ventures project collage: private residence living room, downtown loft kitchen remodel, boutique office buildout, primary suite renovation, material studio flat lay, and commercial lobby design">
+    <div class="jobs-grid">
+      <figure class="job-card">
+        <img src="assets/jobs/real-job-bath-exterior.jpg" alt="Before and after images of a bathroom update and exterior home refresh" loading="lazy">
+        <figcaption><h3>Bathroom &amp; exterior refresh</h3><p>Bathroom renovation and exterior updates</p></figcaption>
+      </figure>
+      <figure class="job-card">
+        <img src="assets/jobs/real-job-bath-basement.jpg" alt="Before and after images of bathroom and basement renovations" loading="lazy">
+        <figcaption><h3>Bathroom &amp; basement updates</h3><p>Bathroom renovation and basement refresh</p></figcaption>
+      </figure>
+      <figure class="job-card">
+        <img src="assets/jobs/real-job-bathroom.jpg" alt="Before and after images of a bathroom renovation" loading="lazy">
+        <figcaption><h3>Bathroom renovation</h3><p>Updated vanity, finishes, and shower</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="concepts">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Renovation concepts.</h2>
+      <p>AI-generated visualizations for inspiration. These are not completed J&amp;K Ventures projects.</p>
+    </div>
+    <div class="concept-grid">
+      <figure class="concept-card">
+        <img src="assets/jobs/concept-bathroom-before-after.png" alt="AI-generated concept comparing a dated bathroom with a refreshed bathroom design" loading="lazy">
+        <figcaption><h3>Bathroom transformation concept</h3><p>Warm tile, natural oak, and matte black finishes.</p><span class="concept-label">AI concept · Not a completed job</span></figcaption>
+      </figure>
+      <figure class="concept-card">
+        <img src="assets/jobs/concept-basement-before-after.png" alt="AI-generated concept comparing a dated basement with a refreshed family room design" loading="lazy">
+        <figcaption><h3>Basement transformation concept</h3><p>A brighter family room with updated flooring and lighting.</p><span class="concept-label">AI concept · Not a completed job</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -363,20 +526,21 @@
 <section id="testimonials" class="testimonials">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Client notes.</h2>
+      <h2>One team, from first call to ongoing care.</h2>
+      <p>Here’s what to expect when you reach out.</p>
     </div>
     <div class="t-grid">
       <div class="t-card">
-        <q>They designed the space, built it, and then kept it looking that way. We never had to manage three separate vendors.</q>
-        <div class="who">Harry Solomon<span>Homeowner, Full Remodel</span></div>
+        <q>Start with a conversation about your property, goals, location, and timing.</q>
+        <div class="who">01 · Share the brief<span>Call or video consultation</span></div>
       </div>
       <div class="t-card">
-        <q>Our buildout finished on schedule with zero surprises on materials. Communication was direct the whole way through.</q>
-        <div class="who">Karen King<span>Commercial Client</span></div>
+        <q>We confirm whether the scope and location fit, then outline the next steps.</q>
+        <div class="who">02 · Confirm the fit<span>Scope, location, and availability</span></div>
       </div>
       <div class="t-card">
-        <q>The maintenance program alone has been worth it — the finishes still look brand new a year later.</q>
-        <div class="who">Connor Thielges<span>Property Owner</span></div>
+        <q>If it’s a match, we schedule a walkthrough or remote design session and prepare a proposal.</q>
+        <div class="who">03 · Plan the work<span>Walkthrough or remote session</span></div>
       </div>
     </div>
   </div>
@@ -388,25 +552,25 @@
       <div class="c-info reveal">
         <span class="eyebrow">Get in touch</span>
         <h2>Tell us about the space.</h2>
-        <p>Share a few details and we'll follow up to schedule a walkthrough or a call — whichever fits.</p>
+        <p>J&amp;K Ventures serves projects nationwide. Remote consultations are available throughout the U.S.; on-site work is scheduled by location, scope, and availability. Ask us about licensing and insurance requirements for your project location.</p>
         <div class="c-list">
           <div><span class="l">Email</span><a href="mailto:info@jkventures.llc">info@jkventures.llc</a></div>
           <div><span class="l">Phone</span><a href="tel:+15075916268">(507) 591-6268</a></div>
-          <div><span class="l">Service Area</span><span>Residential & Commercial</span></div>
+          <div><span class="l">Service Area</span><span>Nationwide · Remote consultations available throughout the U.S. · On-site availability confirmed by project location and schedule.</span></div>
         </div>
       </div>
-      <form class="inquiry reveal" onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Request Sent ✓';">
+      <form class="inquiry reveal" id="inquiry-form">
         <div class="field">
           <label for="name">Full name</label>
-          <input id="name" type="text" required placeholder="Jane Carter">
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name">
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" required placeholder="jane@email.com">
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
         </div>
         <div class="field">
           <label for="service">Interested in</label>
-          <select id="service">
+          <select id="service" name="service">
             <option>Interior Design</option>
             <option>Remodeling / Design-Build</option>
             <option>Property Maintenance</option>
@@ -415,9 +579,10 @@
         </div>
         <div class="field">
           <label for="msg">Project details</label>
-          <textarea id="msg" placeholder="Property type, rough scope, timeline..."></textarea>
+          <textarea id="msg" name="message" placeholder="City and state, property type, rough scope, timeline..."></textarea>
         </div>
         <button class="btn btn-primary submit" type="submit">Send Inquiry →</button>
+        <p class="form-note">Submitting opens a prefilled email in your email app; your details are not sent from this page.</p>
       </form>
     </div>
   </div>
@@ -428,7 +593,7 @@
     <div class="f-brand">J&K Ventures LLC</div>
     <div class="f-links">
       <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#portfolio">Our Recent Jobs</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -437,6 +602,33 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  const menuButton = document.querySelector('.menu-btn');
+  const siteNav = document.getElementById('site-nav');
+  menuButton.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    menuButton.textContent = isOpen ? '×' : '☰';
+  });
+  siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    siteNav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation');
+    menuButton.textContent = '☰';
+  }));
+  document.getElementById('inquiry-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const subject = encodeURIComponent(`Project inquiry from ${form.elements.name.value}`);
+    const body = encodeURIComponent([
+      `Name: ${form.elements.name.value}`,
+      `Email: ${form.elements.email.value}`,
+      `Interested in: ${form.elements.service.value}`,
+      '',
+      form.elements.message.value
+    ].join('\n'));
+    window.location.href = `mailto:info@jkventures.llc?subject=${subject}&body=${body}`;
+  });
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
